@@ -18,4 +18,4 @@ No terminal
 docker-compose up -d
 
 No browser
-http://localhost:8000
+http://localhost:8080

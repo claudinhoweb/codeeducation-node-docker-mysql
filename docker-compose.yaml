@@ -6,13 +6,13 @@ services:
     build:
       context: node
     container_name: node
-    networks:
-      - node-network
     volumes:
       - ./node:/usr/src/node
     tty: true
     depends_on:
        - db
+    networks:
+      - node-network
 
   db:
     image: mysql:5.7
@@ -33,7 +33,7 @@ services:
       context: nginx
     container_name: nginx
     ports:
-      - "8000:80"
+      - "8080:80"
     depends_on:
       - db
       - node
