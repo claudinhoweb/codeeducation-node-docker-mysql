@@ -22,10 +22,12 @@ app.listen(port, ()=> {
 
 function getNames(res) {
     const connection = mysql.createConnection(config)
+    let sql = `create table if not exists people(id int not null auto_increment, nome varchar(255), primary key(id));`
+    connection.query(sql)
 
     insertName(connection)
 
-    const sql = `SELECT nome FROM people`;
+    sql = `SELECT nome FROM people`;
     connection.query(sql, (error, results, fields) => {
         if (error) {
             throw error

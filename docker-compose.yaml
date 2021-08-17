@@ -22,7 +22,6 @@ services:
     tty: true
     volumes:
       - ./mysql:/var/lib/mysql
-      - ./node/mysql:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
@@ -34,7 +33,7 @@ services:
       context: nginx
     container_name: nginx
     ports:
-      - "8080:80"
+      - "8000:80"
     depends_on:
       - db
       - node
